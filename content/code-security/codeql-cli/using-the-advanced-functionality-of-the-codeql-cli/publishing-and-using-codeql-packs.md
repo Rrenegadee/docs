@@ -3,7 +3,9 @@ title: Publishing and using CodeQL packs
 intro: 'You can publish your own {% data variables.product.prodname_codeql %} packs and use packs published by other people.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
-  feature: codeql-packs
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -65,7 +67,6 @@ codeql pack download <scope>/<pack>@x.x.x
 
 This command accepts arguments for multiple packs.
 
-{% ifversion query-pack-compatibility %}
 If you write scripts that specify a particular version number of a
 query pack to download, keep in mind that when you update your version of
 {% data variables.product.prodname_codeql %} to a newer one, you may
@@ -74,7 +75,6 @@ versions of {% data variables.product.prodname_codeql %} _may_ provide
 degraded performance when used with query packs that have been pinned
 to a very old version. For more information, see "[About {% data variables.product.prodname_codeql %}
 pack compatibility](#about-codeql-pack-compatibility)."
-{% endif %}
 
 ## Using a {% data variables.product.prodname_codeql %} pack to analyze a {% data variables.product.prodname_codeql %} database
 
@@ -96,7 +96,6 @@ The `analyze` command will run the default suite of any specified {% data variab
 codeql <database> analyze <scope>/<pack> <scope>/<other-pack>
 ```
 
-{% ifversion query-pack-compatibility %}
 {% note %}
 
 **Note:** The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification.  Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
@@ -111,8 +110,6 @@ analysis significantly slower.
 It can generally be assumed that if a pack is published with one release of {% data variables.product.prodname_codeql %}, the precompiled queries in it can be used directly by _later_ releases of {% data variables.product.prodname_codeql %}, as long as there is no more than 6 months between the release dates. We will make reasonable efforts to keep new releases compatible for longer than that, but make no promises.
 
 It can also be assumed that a pack published by the _latest_ public release of {% data variables.product.prodname_codeql %} will be useable by the version of {% data variables.product.prodname_codeql %} that is used by {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %}, even though that is often a slightly older release.
-
-As an exception to the above, packs published with versions of {% data variables.product.prodname_codeql %} _earlier than 2.12.0_ are not compatible with any earlier or later versions. These old versions did not write pre-compiled queries in a format that supported compatibility between releases. Packs published by these versions can still be _used_ by newer versions, but the analysis will be slower because the queries have to be recompiled first.
 
 As a user of a published query pack, you can check that the {% data variables.product.prodname_codeql %} makes use of the precompiled queries in it by inspecting the terminal output from an analysis runs that uses the query pack. If it contains lines looking like the following, then the precompiled queries were used successfully:
 
@@ -132,8 +129,6 @@ The results of the analysis will still be good in this case, but to get optimal 
 If you publish query packs on the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} for others to use, we recommend that you use a recent release of {% data variables.product.prodname_codeql %} to run `codeql pack publish`, and that you publish a fresh version of your pack with an updated {% data variables.product.prodname_codeql %} version before the version you used turns 6 months old. That way you can ensure that users of your pack who keep _their_ {% data variables.product.prodname_codeql %} up to date will benefit from the pre-compiled queries in your pack.
 
 If you publish query packs with the intention of using them on a {% data variables.product.prodname_ghe_server %} installation that uses its bundled {% data variables.product.prodname_codeql %} binaries, use the same {% data variables.product.prodname_codeql %} version to run `codeql pack publish`. Newer versions might produce pre-compiled queries that the one in {% data variables.product.prodname_ghe_server %} may not recognize. Your {% data variables.product.prodname_ghe_server %} administrator may choose to upgrade to a newer version of {% data variables.product.prodname_codeql %} periodically. If so, follow their lead.
-
-{% endif %}
 
 {% ifversion ghes %}
 
@@ -383,7 +378,7 @@ The following properties are supported in `qlpack.yml` files.
 #### `warnOnImplicitThis`
 
 * Optional. Defaults to `false` if the `warnOnImplicitThis` property is not defined.
-* Defines a boolean that specifies whether or not the compiler should emit warnings about member predicate calls with implicit `this` call receivers, that is, without an explicit receiver. Supported from {% data variables.product.prodname_codeql_cli %} version 2.13.2 and onwards. For example:
+* Defines a boolean that specifies whether or not the compiler should emit warnings about member predicate calls with implicit `this` call receivers, that is, without an explicit receiver. Available since {% data variables.product.prodname_codeql_cli %} v2.13.2. For example:
 
   ```yaml
   warnOnImplicitThis: true

@@ -34,7 +34,7 @@ Dependency review is included in {% data variables.product.product_name %} for p
 
 {% elsif ghes %}
 
-Dependency review is available when dependency graph is enabled for {% data variables.location.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.{% ifversion ghes %} For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."{% endif %}
+Dependency review is available when dependency graph is enabled for the instance and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.{% ifversion ghes %} For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."{% endif %}
 
 ### Checking if the dependency graph is enabled
 
@@ -177,8 +177,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
           # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
           # Possible values: An absolute path to a local file or an external file.
           config-file: './.github/dependency-review-config.yml'
-          # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
-          config-file: 'github/octorepo/dependency-review-config.yml@main'
+          # Optional alternative syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH (uncomment if preferred)
+          # config-file: 'github/octorepo/dependency-review-config.yml@main'
 
           # ([Token]) Use if your configuration file resides in a private external repository.
           # Possible values: Any GitHub token with read access to the private external repository.
@@ -224,3 +224,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}
+
+## Further reading
+
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/customizing-your-dependency-review-action-configuration)"

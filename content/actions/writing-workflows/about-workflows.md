@@ -40,17 +40,15 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-wor
 
 ## Workflow syntax
 
-Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
-
-{% data reusables.actions.workflow-basic-example-and-explanation %}
+Workflows are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
 
 For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[AUTOTITLE](/actions/managing-workflow-runs)."
 
-## Using starter workflows
+## Using workflow templates
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)" and "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+{% data reusables.actions.workflow-templates-repo-link %}
 
 ## Advanced workflow features
 
@@ -125,8 +123,6 @@ jobs:
 
 For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
-{% ifversion actions-caching %}
-
 ### Caching dependencies
 
 If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
@@ -149,7 +145,6 @@ jobs:
 ```
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
-{% endif %}
 
 ### Using databases and service containers
 
@@ -159,7 +154,7 @@ If your job requires a database or cache service, you can use the [`services`](/
 jobs:
   container-job:
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: node:20-bookworm-slim
     services:
       postgres:
         image: postgres

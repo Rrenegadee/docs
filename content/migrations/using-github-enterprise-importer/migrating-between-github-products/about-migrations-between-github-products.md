@@ -22,6 +22,17 @@ The data that {% data variables.product.prodname_importer_proper_name %} migrate
 
 ## Data that is migrated from {% data variables.product.prodname_ghe_server %}
 
+> [!WARNING]
+> The Wikis migration is currently unavailable.
+> As a workaround, you can migrate manually:
+>
+> ```shell copy
+> git clone --mirror OLD-REPOSITORY-URL
+> cd OLD-REPOSITORY-NAME
+> git remote add new-origin NEW-REPOSITORY-URL
+> git push new-origin --mirror
+> ```
+
 To migrate from {% data variables.product.prodname_ghe_server %} (GHES), you must have GHES version 3.4.1 or higher. The data that is migrated depends on the version you're using.
 
 Item | GHES 3.4.1+ | GHES 3.5.0+ |
@@ -31,7 +42,6 @@ Pull requests | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon
 Issues | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Milestones | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Wikis | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
-Projects (classic) at the repository level | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 {% data variables.product.prodname_actions %} workflows | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Commit comments | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Active webhooks | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
@@ -95,7 +105,6 @@ When you migrate a repository, either directly or as part of an organization mig
 * Issues
 * Milestones
 * Wikis (excluding attachments)
-* Projects (classic) at the repository level
 * {% data variables.product.prodname_actions %} workflows
 * Commit comments
 * Active webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#enabling-webhooks)")

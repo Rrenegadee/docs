@@ -20,7 +20,7 @@ Autocomplete-style suggestions from {% data variables.product.prodname_copilot_s
 
 ### {% data variables.product.prodname_copilot_chat_short %}
 
-A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available in {% data variables.product.prodname_dotcom_the_website %} _({% data variables.product.prodname_copilot_enterprise_short %} only)_, in {% data variables.product.prodname_mobile %}, and in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs)_. {% data variables.product.prodname_copilot_enterprise_short %} users can also use skills with {% data variables.product.prodname_copilot_chat_short %}.
+A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, and in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs)_. Users can also use skills with {% data variables.product.prodname_copilot_chat_short %}.
 
 ### {% data variables.product.prodname_copilot_cli_short %}
 
@@ -36,7 +36,7 @@ AI-generated text completion to help you write pull request descriptions quickly
 
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 
-Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question.
+Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.product.prodname_copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question.
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 

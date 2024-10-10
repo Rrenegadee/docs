@@ -12,7 +12,7 @@ redirect_from:
 
 **Note**: {% data reusables.user-settings.pat-v2-beta %}
 
-During the beta, enterprises must opt in to {% data variables.product.pat_v2 %}s. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.
+During the {% data variables.release-phases.public_preview %}, enterprises must opt in to {% data variables.product.pat_v2 %}s. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.
 
 Even if an enterprise has not opted in to {% data variables.product.pat_v2 %}s, organizations owned by the enterprise can still opt in. All users, including {% data variables.product.prodname_emus %}, can create {% data variables.product.pat_v2 %}s that can access resources owned by the user (such as repositories created under their account) even if the enterprise has not opted in to {% data variables.product.pat_v2 %}s.
 
@@ -57,7 +57,8 @@ Enterprise owners can prevent {% data variables.product.pat_v1_plural %} from ac
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 1. Under {% octicon "law" aria-hidden="true" %} **Policies**, click **{% data variables.product.pat_generic_caps_plural %}**.
-1. Under **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select the option that meets your needs:
+{% ifversion tabbed-pat-settings-ui %} 1. Select the **Tokens (classic)** tab to access the {% data variables.product.pat_v1_plural %} settings.
+{% endif %}1. Under **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select the option that meets your needs:
    * **Allow organizations to configure {% data variables.product.pat_v1_plural %} access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v1_plural %}.
    * **Restrict access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} cannot access the enterprise or organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v1_plural %} will continue to work. Organizations cannot override this setting.
    * **Allow access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} can access the enterprise and organizations owned by the enterprise. Organizations cannot override this setting.

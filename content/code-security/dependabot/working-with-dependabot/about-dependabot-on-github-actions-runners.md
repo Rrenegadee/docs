@@ -1,6 +1,6 @@
 ---
 title: About Dependabot on GitHub Actions runners
-intro: 'Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} allows for better performance, and increased visibility and control of {% data variables.product.prodname_dependabot %} jobs.'
+intro: '{% data variables.product.prodname_dotcom %} automatically runs the jobs that generate {% data variables.product.prodname_dependabot %} pull requests on {% data variables.product.prodname_actions %} if you have {% data variables.product.prodname_actions %} enabled for the repository.'
 shortTitle: About Dependabot on Actions
 permissions: 'Organization owners and repository administrators can enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %}.'
 versions:
@@ -15,11 +15,11 @@ topics:
   - Repositories
 ---
 
-{% data reusables.dependabot.dependabot-on-actions-opt-in-note %}
-
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 
 {% data reusables.dependabot.dependabot-updates-and-actions %}
+
+{% data reusables.dependabot.dependabot-on-actions-future-note %}
 
 Using {% data variables.product.prodname_actions %} runners allows you to more easily identify {% data variables.product.prodname_dependabot %} job errors and manually detect and troubleshoot failed runs. You can also integrate {% data variables.product.prodname_dependabot %} into your CI/CD pipelines by using {% data variables.product.prodname_actions %} APIs and webhooks to detect {% data variables.product.prodname_dependabot %} job status such as failed runs, and perform downstream processing. For more information, see "[AUTOTITLE](/rest/actions)" and "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
 
@@ -89,10 +89,8 @@ If you run into {% data variables.product.prodname_dependabot %} timeouts and ou
 
 > [!NOTE] You can only enable {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_dependabot %} _at the organization level_. {% data variables.product.prodname_dotcom %} will bill your organization at the regular Actions runner pricing. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
-1. Add a {% data variables.actions.hosted_runner %} to your organization. For more informaton, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
-1. Add the `dependabot` label to the {% data variables.actions.hosted_runner %}.
-1. Optionally, call the {% data variables.actions.hosted_runner %} `dependabot`.
-1. Opt in the organization to self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization)." This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` label.
+1. Add a {% data variables.actions.hosted_runner %} to your organization and ensure the name specified is `dependabot`. For more informaton, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
+1. Opt in the organization to self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization)." This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` name.
 
 ## Managing {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 
@@ -119,6 +117,6 @@ To re-run a {% data variables.product.prodname_dependabot_version_updates %} or 
 1. Under "{% data variables.product.prodname_dependabot %}", click the alert you want to view.
 1. In the section displaying the error details for the alert, click **Try again** to re-run the {% data variables.product.prodname_dependabot_security_updates %} job.
 
-## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
+## Further reading
 
-{% data reusables.dependabot.dependabot-on-actions-troubleshooting-workflows %} For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#accessing-secrets)" and "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions)."
+* "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-on-github-actions)"
